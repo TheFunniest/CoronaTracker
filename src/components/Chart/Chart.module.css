@@ -1,0 +1,10 @@
+.chartBlock {
+    background-color: rgba(250, 227, 227, 0.5);
+    display: flex;
+    justify-content: center;
+}
+
+
+.container {
+    width: 85%;
+}

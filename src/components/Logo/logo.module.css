@@ -1,0 +1,22 @@
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo2 {
+  margin-top: 50px;
+}
+
+@media screen and (max-width: 600px) {
+  .logo>a{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    /* width: 90%; */
+  }
+  .logo2 {
+    width: 80%;
+    margin: 20px 0;
+  }
+}

@@ -1,0 +1,69 @@
+.searchBar {
+  height: 400px;
+}
+
+
+
+.searchBlock {
+  display: flex;
+  justify-content: center;
+}
+
+.searchInput {
+  width: 65%;
+  border: 1px solid #ffffff;
+  border-radius: 15px;
+  padding: 10px 15px;
+  outline: none;
+  font-size: 18px;
+  font-family: "Baloo Bhaina 2", cursive;
+}
+
+.countriesList {
+  margin: 0;
+  list-style: none;
+  background-color: #ffffff;
+  padding: 15px;
+  width: 60%;
+  margin: 10px auto;
+  border-radius: 6px;
+}
+
+/* .countryItem {
+} */
+
+.countryLink {
+  text-decoration: none;
+  color: #000000;
+  display: block;
+  padding: 10px;
+  font-size: 18px;
+  font-family: "Baloo Bhaina 2", cursive;
+}
+
+.countryLink:hover {
+  background-color: silver;
+}
+
+@media screen and (max-width: 600px) {
+  .searchBar {
+    position: absolute;
+    top: 11%;
+    transform: translate(10px, 10px);
+    transform: translateX(-50%);
+    left: 50%;
+    height: unset;
+    width: 100%;
+  }
+  .searchInput {
+    width: 90%;
+    padding: 5px 7px;
+  }
+  .countryLink:hover {
+    background-color: goldenrod;
+  }
+  .countriesList {
+    background-color: gold;
+    width: 90%;
+  }
+}
