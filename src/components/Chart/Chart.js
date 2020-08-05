@@ -17,7 +17,7 @@ const Chart = () => {
   }, []);
   let { state } = useLocation();
   if (state) {
-    var { country, total_cases, total_deaths, total_recovered } = state;
+    var { Country, TotalConfirmed, TotalDeaths, TotalRecovered } = state;
   }
 
   const barChart = state ? (
@@ -32,13 +32,13 @@ const Chart = () => {
               "rgba(0, 255, 0, 0.5)",
               "rgba(255, 0, 0, 0.5)",
             ],
-            data: [total_cases, total_recovered, total_deaths],
+            data: [TotalConfirmed, TotalRecovered, TotalDeaths],
           },
         ],
       }}
       options={{
         legend: { display: false },
-        title: { display: true, text: `Current state in ${country}` },
+        title: { display: true, text: `Current state in ${Country}` },
       }}
     />
   ) : null;
@@ -67,7 +67,7 @@ const Chart = () => {
   ) : null;
   return (
     <div className={styles.chartBlock}>
-      <div className={styles.container}>{country ? barChart : lineChart}</div>
+      <div className={styles.container}>{Country ? barChart : lineChart}</div>
     </div>
   );
 };

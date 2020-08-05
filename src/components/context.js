@@ -12,7 +12,6 @@ export const Provider = props => {
     const getTotal =  async () => {
       let totalData = await fetchTotal()
       setTotal(totalData)
-      return totalData
     }
 
 

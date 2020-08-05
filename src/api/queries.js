@@ -2,23 +2,24 @@ import API from "./api";
 import chartAPI from "./api2";
 
 export const fetchTotal = async () => {
-  let { data } = await API.get("stats?country=Total");
+  let { data } = await API.get("summary");
   let {
-    total_cases,
-    total_recovered,
-    total_deaths,
-    new_cases,
-    new_deaths,
-    active_cases,
-  } = data[7];
-  console.log(data)
+    NewConfirmed,
+    NewDeaths,
+    NewRecovered,
+    TotalConfirmed,
+    TotalDeaths,
+    TotalRecovered,
+  } = data.Global;
+  let { Countries } = data;
   return {
-    total_cases,
-    total_recovered,
-    total_deaths,
-    new_cases,
-    new_deaths,
-    active_cases,
+    Countries,
+    NewConfirmed,
+    NewDeaths,
+    NewRecovered,
+    TotalConfirmed,
+    TotalDeaths,
+    TotalRecovered,
   };
 };
 

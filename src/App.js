@@ -6,7 +6,7 @@ import { BrowserRouter as Router,} from "react-router-dom";
 import styles from "./App.module.css";
 
 // API FUNCTIONS
-import { fetchTotal, fetchCountries } from "./api/queries";
+import { fetchTotal } from "./api/queries";
 
 // COMPONENTS
 import Cards from "./components/Cards/Cards";
@@ -24,8 +24,7 @@ export default class App extends React.Component {
   };
   async componentDidMount() {
     let total = await fetchTotal();
-    let countriesInfo = await fetchCountries();
-    this.setState({ total, countries: countriesInfo });
+    this.setState({ total, countries: total.Countries });
   }
 
   render() {

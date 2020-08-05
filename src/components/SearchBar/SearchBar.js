@@ -7,24 +7,22 @@ const SearchBar = ({ data }) => {
   let [isHidden, setHide] = useState(false);
   let [items, setItems] = useState([]);
   let [search, setSearch] = useState(localStorage.getItem("userInput") || "");
-  // useEffect(() => {
-    
-  // }, [search]);
   useEffect( () => {
+    
     if(state) {
       setHide(true)
       localStorage.setItem("userInput", search);
-      console.log(localStorage)
       setSearch('')
     } 
   }, [state] )
   const searchCountries = (dataObj, country) => {
-    if (country.length == "") {
+    if (country.length === "") {
+      setHide(true)
       return [];
     }
     let countries = [];
     for (let val of dataObj) {
-      if (val.country.toLowerCase().startsWith(country)) {
+      if (val.Country.toLowerCase().startsWith(country)) {
         countries.push(val);
       }
     }
@@ -36,6 +34,8 @@ const SearchBar = ({ data }) => {
     localStorage.setItem("userInput", search);
     setSearch(searching.charAt(0).toUpperCase() + searching.slice(1));
     setItems(searchCountries(data, searching.toLowerCase()));
+    searching.length ? setHide(false) : setHide(true)
+    
   };
 
   return (
@@ -55,13 +55,14 @@ const SearchBar = ({ data }) => {
           {items.map((el) => (
             <li
               className={styles.countryItem}
-              key={el.id}
+              key={el.CountryCode}
             >
               <Link
                 className={styles.countryLink}
-                to={{ pathname: `/${el.country.toLowerCase()}`, state: el }}
+                to={{ pathname: `/${el.Country.toLowerCase()}`, state: el }}
+                onClick= {() => setHide(true)}
               >
-                {el.country}
+                {el.Country}
               </Link>
             </li>
           ))}

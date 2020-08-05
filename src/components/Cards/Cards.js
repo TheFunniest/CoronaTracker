@@ -11,7 +11,6 @@ import Card from "./Card";
 import { Context } from "../../components/context";
 
 const Cards = () => {
-  // let [info, setInfo] = useState({});
   let { state } = useLocation();
   let now = new Date().toDateString();
   const { getTotal, total, setTotal } = useContext(Context);
@@ -19,43 +18,41 @@ const Cards = () => {
   
   useEffect(() => {
     setTotal(state);
-  }, [state]);
+  }, [state, setTotal]);
   
   
   useEffect(() => {
     if (!state) {
       getTotal();
-      console.log(total);
     }
   }, []);
   if (total) {
     var {
-      total_cases,
-      total_deaths,
-      total_recovered,
-      new_cases,
-      new_deaths,
-      active_cases,
+      NewConfirmed,
+      NewDeaths,
+      NewRecovered,
+      TotalConfirmed,
+      TotalDeaths,
+      TotalRecovered,
     } = total;
   }
   let info = {
     infected: {
-      total_cases,
-      new_cases,
+      total_cases: TotalConfirmed,
+      new_cases: NewConfirmed,
     },
     deaths: {
-      total_cases: total_deaths,
-      new_cases: new_deaths,
+      total_cases: TotalDeaths,
+      new_cases: NewDeaths,
     },
     recovered: {
-      total_cases: total_recovered,
-      new_cases: active_cases,
+      total_cases: TotalRecovered,
+      new_cases: NewRecovered,
     },
   };
 
   return (
     <div className={styles.container}>
-      {console.log(total)}
       <Grid container spacing={3} justify="center">
         <Card
           type={"Infected"}

@@ -17,7 +17,6 @@ const Card = ({ type,info,todaysText, now }) => {
           lg={3}
           className={cx(styles.card, styles[type])}
         >
-          {console.log(type, styles)}
           <CardContent>
             <Typography gutterBottom color="textSecondary" variant="h6">
               {type}
